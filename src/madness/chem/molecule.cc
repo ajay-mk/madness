@@ -456,6 +456,7 @@ const Atom& Molecule::get_atom(unsigned int i) const {
 // https://molssi-qc-schema.readthedocs.io/en/latest/auto_topology.html
 nlohmann::json Molecule::to_json() const {
     nlohmann::json mol_schema;
+    mol_schema["electric_field"].push_back({field[0], field[1], field[2]});
     mol_schema["symbols"] = {};
     mol_schema["geometry"] = {};
 
